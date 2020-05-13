@@ -35,7 +35,7 @@
     <xacro:property name="motor_x" value="0.12"/>
 
     <!-- Caster radius and mass -->
-    <xacro:property name="caster_radius"          value="0.027" /> 
+    <xacro:property name="caster_radius"          value="0.025" /> 
     <xacro:property name="caster_mass"            value="0.017" /> 
     <xacro:property name="caster_joint_origin_x"  value="-0.21" />
 
@@ -145,7 +145,7 @@
         <joint name="base_to_${fb}_caster_joint" type="fixed">
             <parent link="base_link"/>
             <child link="${fb}_caster_link"/>
-            <origin xyz="${translateX*caster_joint_origin_x} 0 ${-caster_radius}" rpy="0 0 0"/>
+            <origin xyz="${translateX*caster_joint_origin_x} 0 ${-caster_radius-base_link_height/2}" rpy="0 0 0"/>
         </joint>
     </xacro:macro>
 
@@ -281,11 +281,11 @@
                 <publishTf>1</publishTf>
                 <publishWheelJointState>true</publishWheelJointState>
                 <alwaysOn>true</alwaysOn>
-                <updateRate>100.0</updateRate>
+                <updateRate>200.0</updateRate>
                 <legacyMode>true</legacyMode>
                 <leftJoint>base_to_wheel_left_joint</leftJoint>
                 <rightJoint>base_to_wheel_right_joint</rightJoint>
-                <wheelSeparation>${base_link_width}</wheelSeparation>
+                <wheelSeparation>${base_link_width+wheel_height}</wheelSeparation>
                 <wheelDiameter>${2*wheel_radius}</wheelDiameter>
                 <broadcastTF>1</broadcastTF>
                 <wheelTorque>30</wheelTorque>
