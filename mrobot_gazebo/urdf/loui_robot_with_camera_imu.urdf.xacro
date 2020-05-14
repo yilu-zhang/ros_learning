@@ -14,7 +14,7 @@
 	<!-- imu parameter:0.12 0 0.005 -->
 	<xacro:property name="imu_offset_x" value="0.12" />
 	<xacro:property name="imu_offset_y" value="0.0" />
-	<xacro:property name="imu_offset_z" value="0.005" />
+	<xacro:property name="imu_offset_z" value="0.05" />
 
 	<!-- Body of mrobot, with plates, standoffs and Create (including sim sensors) -->
 	<mrobot_body/>
